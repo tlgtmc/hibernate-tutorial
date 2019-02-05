@@ -6,7 +6,7 @@ import org.hibernate.cfg.Configuration;
 
 import com.tlgtmc.hibernate.demo.entity.Student;
 
-public class CreateStudentDemo {
+public class PrimaryKeyDemo {
 
 	public static void main(String[] args) {
 
@@ -18,10 +18,14 @@ public class CreateStudentDemo {
 		Session session = factory.getCurrentSession();
 
 		try {
-			Student myStudent = new Student("John", "Albert", "johnAlbert@gmail.com");
+			Student myStudent1 = new Student("Paul", "Walker", "paulAlbert@gmail.com");
+			Student myStudent2 = new Student("John", "Walker", "johnAlbert@gmail.com");
+			Student myStudent3 = new Student("Kurt", "Walker", "kurtAlbert@gmail.com");
 
 			session.beginTransaction();
-			session.save(myStudent);
+			session.save(myStudent1);
+			session.save(myStudent2);
+			session.save(myStudent3);
 			session.getTransaction().commit();
 
 		} finally {
